@@ -23,23 +23,22 @@ export const constantRouterMap = [
   { path: '/404', component: _import('404'), hidden: true },
 
   {
-    path: '/',
+    path: '',
     component: Layout,
-    redirect: '/dashboard',
-    name: 'Dashboard',
-    hidden: true,
+    redirect: 'dashboard',
     children: [{
       path: 'dashboard',
-      component: _import('dashboard/index')
+      component: _import('dashboard/index'),
+      name: 'dashboard',
+      meta: { title: 'dashboard', icon: 'table', noCache: true }
     }]
   },
-
   {
     path: '/example',
     component: Layout,
     redirect: '/example/table',
     name: 'Example',
-    meta: { title: 'Example', icon: 'example' },
+    meta: { title: 'example', icon: 'example' },
     children: [
       {
         path: 'table',
@@ -51,7 +50,7 @@ export const constantRouterMap = [
         path: 'tree',
         name: 'Tree',
         component: _import('tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
+        meta: { title: 'tree', icon: 'tree' }
       }
     ]
   },
@@ -64,7 +63,7 @@ export const constantRouterMap = [
         path: 'index',
         name: 'Form',
         component: _import('form/index'),
-        meta: { title: 'Form', icon: 'form' }
+        meta: { title: 'form', icon: 'form' }
       }
     ]
   },
